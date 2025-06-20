@@ -2,17 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SF-Rocker's Tracker Net</title>
+  <title>SF-Rocker Recon Node</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background-color: #0d0d0d;
+      background-color: #0f0f0f;
       color: #00ffcc;
-      font-family: monospace;
-      text-align: center;
-      padding-top: 10%;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 2rem;
+      overflow: hidden;
+      height: 100vh;
     }
-    h1 {
-      font-size: 2em;
+    .terminal {
+      max-width: 80ch;
+      margin: 0 auto;
+      white-space: pre-wrap;
+      animation: flicker 0.2s infinite alternate;
+    }
+    @keyframes flicker {
+      from { opacity: 1; }
+      to   { opacity: 0.95; }
+    }
+    .caret::after {
+      content: '█';
+      animation: blink 1s step-start infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
     }
     a {
       color: #ffaa00;
@@ -21,9 +37,22 @@
   </style>
 </head>
 <body>
-  <h1>Welcome to SF-Rocker's DNS Trap</h1>
-  <p>Researching ad domains, trackers, and weird referrers since right now.</p>
-  <p><a href="http://192.168.254.105/generated-blocklist.txt" target="_blank">View the live blocklist</a></p>
+  <div class="terminal">
+    <div>
+      <span>SF-Rocker@trapbox:~$</span> curl https://SF-Rocker.github.io<br>
+      Initializing passive telemetry core... <span style="color:#00ff00;">[OK]</span><br>
+      Ingesting referers... <span style="color:#ffaa00;">🛰️</span><br>
+      Writing blocklist to <a href="http://192.168.254.105/generated-blocklist.txt" target="_blank">/dev/null/blackhole.txt</a><br>
+      <br>
+      Listening on port 80 | Tracker node active<br>
+      Timestamp: <span id="timestamp"></span><br><br>
+      <span class="caret"></span>
+    </div>
+  </div>
   <img src="http://192.168.254.105/tracker.php" style="display:none" alt="tracker pixel">
+  <script>
+    const now = new Date();
+    document.getElementById("timestamp").textContent = now.toUTCString();
+  </script>
 </body>
 </html>
