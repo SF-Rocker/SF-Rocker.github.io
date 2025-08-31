@@ -1,58 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>SF-Rocker Recon Node</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>St. Michael the Archangel Prayer</title>
   <style>
     body {
-      background-color: #0f0f0f;
-      color: #00ffcc;
-      font-family: 'Courier New', Courier, monospace;
-      padding: 2rem;
-      overflow: hidden;
-      height: 100vh;
+      background-color: #e0f7fa;
+      font-family: 'Garamond', 'Georgia', serif;
+      color: #007c91;
+      margin: 0;
+      padding: 0;
     }
-    .terminal {
-      max-width: 80ch;
+    .centered {
+      max-width: 800px;
       margin: 0 auto;
-      white-space: pre-wrap;
-      animation: flicker 0.2s infinite alternate;
+      padding: 60px 40px;
+      text-align: center;
     }
-    @keyframes flicker {
-      from { opacity: 1; }
-      to   { opacity: 0.95; }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
     }
-    .caret::after {
-      content: '█';
-      animation: blink 1s step-start infinite;
-    }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-    a {
-      color: #ffaa00;
-      text-decoration: none;
+    p {
+      font-size: 1.3em;
+      line-height: 1.8;
     }
   </style>
 </head>
 <body>
-  <div class="terminal">
-    <div>
-      <span>SF-Rocker@trapbox:~$</span> curl https://SF-Rocker.github.io<br>
-      Initializing passive telemetry core... <span style="color:#00ff00;">[OK]</span><br>
-      Ingesting referers... <span style="color:#ffaa00;">🛰️</span><br>
-      Writing blocklist to <a href="http://192.168.254.105/generated-blocklist.txt" target="_blank">/dev/null/blackhole.txt</a><br>
-      <br>
-      Listening on port 80 | Tracker node active<br>
-      Timestamp: <span id="timestamp"></span><br><br>
-      <span class="caret"></span>
-    </div>
+  <div class="centered">
+    <h1>🛡️ Prayer to St. Michael the Archangel</h1>
+    <p>
+      Saint Michael the Archangel,<br />
+      defend us in battle.<br />
+      Be our protection against the wickedness and snares of the devil.<br />
+      May God rebuke him, we humbly pray;<br />
+      and do thou, O Prince of the heavenly host,<br />
+      by the power of God,<br />
+      thrust into hell Satan and all evil spirits<br />
+      who prowl about the world seeking the ruin of souls.<br />
+      Amen.
+    </p>
   </div>
-  <img src="http://192.168.254.105/tracker.php" style="display:none" alt="tracker pixel">
-  <script>
-    const now = new Date();
-    document.getElementById("timestamp").textContent = now.toUTCString();
-  </script>
 </body>
 </html>
