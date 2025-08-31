@@ -1,1 +1,1 @@
-# Catholio or Christian Resources.
+# Catholic or Christian Resources.
